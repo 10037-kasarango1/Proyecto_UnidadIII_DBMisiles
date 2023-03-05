@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Savenet Inicio</title>
+	<link rel="icon" type="image/icon" href="../assets/icons/login.png">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/material.min.css">
+	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="../js/main.js" ></script>
+	<script src="../js/sweetalert2.min.js" ></script>
+	<script src="../js/material.min.js" ></script>
+	<script src="../js/archivos7.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+	</script>
+</head>
+	<body> 
+	<script>
+	if (sessionStorage.getItem('status') != null){
+		
+	}
+	else{
+		window.location.replace("../index.html");
+	}	
+	</script>
+	<div class="full-width navBar">
+		<div class="full-width navBar-options">
+			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+			<div class="mdl-tooltip" for="btn-menu">Menu</div>
+			<nav class="navBar-options-list">
+				<ul class="list-unstyle">
+					<li class="btn-exit" id="btn-exit">
+						<i class="zmdi zmdi-power"></i>
+						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
+					</li>
+					<li class="text-condensedLight noLink" ><small>Usuario</small></li>
+					<li class="noLink">
+						<figure>
+							<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+						</figure>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+		
+	<!-- MenuLateral -->
+		<section class="full-width navLateral">
+		<div class="full-width navLateral-bg btn-menu"></div>
+		<div class="full-width navLateral-body">
+			<div class="full-width navLateral-body-logo text-center tittles">SAVENET</div>
+			<figure class="full-width" style="height: 77px;">
+				<div class="navLateral-body-cl">
+					<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+				</div>
+				<figcaption class="navLateral-body-cr hide-on-tablet">
+					<span>
+						Administrador<br>
+						<small>Administrador</small>
+					</span>
+				</figcaption>
+			</figure>
+			<div class="full-width tittles navLateral-body-tittle-menu">
+				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; Menú</span>
+			</div>
+			<nav class="full-width">
+				<ul class="full-width list-unstyle menu-principal">
+					<li class="full-width">
+						<a href="home.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-view-dashboard"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								INICIO
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						
+						
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								USUARIO
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="admin.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ADMINISTRADOR
+									</div>
+								</a>
+							</li>
+							<li class="full-width divider-menu-h"></li>
+                                <li class="full-width">
+                                    <a href="#!" class="full-width btn-subMenu">
+                                        <div class="navLateral-body-cl">
+                                            <i class="zmdi zmdi-face"></i>
+                                        </div>
+                                        <div class="navLateral-body-cr hide-on-tablet">
+                                            TRABAJADOR
+                                        </div>
+                                        <span class="zmdi zmdi-chevron-left"></span>
+                                    </a>
+                                    <ul class="full-width menu-principal sub-menu-options">
+                                    <li class="full-width">
+                                            <a href="employee.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    PERSONAL
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="ingeniero.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    INGENIERO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="tecnico.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    TECNICO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="administrador.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    ADMINISTRADOR
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+						</ul>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="proveedor.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-accounts"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PROVEEDORES
+							</div>
+						</a>
+					</li>
+	
+					
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="pieza.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PIEZAS
+							</div>
+						</a>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="componente.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								COMPONENTES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="rol.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								ROLES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="permiso.html" class="full-width">
+							<div class="navLateral-body-cl">
+
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PERMISOS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="misil.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								MISILES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="parametro.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PARAMETROS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="departamento.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								DEPARTAMENTOS
+							</div>
+						</a>
+					</li>
+                    
+                    </li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								Otros
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="Especificacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ESPECIFICACION
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="Stock.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										STOCK
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Contenido.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CONTENIDO
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Autorizacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										AUTORIZACION
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="items.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ITEMS
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="fichaensam.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										FICHA ENSAMBLAJE
+									</div>
+								</a>
+							</li>
+						</ul>
+                        
+					</li>
+                    
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!-- ContenidoPagina -->
+	<section class="full-width pageContent">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-width header-well-text">
+				<p class="text-condensedLight">
+					<em>Bienvenido al registro de trabajadores del sistema de Ensamblaje de Misiles.</em>
+				</p>
+			</div>
+		</section>
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			<div class="mdl-tabs__tab-bar">
+				<a href="#tabNewAdmin" class="mdl-tabs__tab is-active">AÑADIR</a>
+				<a href="#tabListAdmin" class="mdl-tabs__tab" onclick="cargarArchivos()">LISTA</a>
+			</div>
+			<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-primary text-center tittles">
+								Nuevo trabajador
+							</div>
+							<div class="full-width panel-content">
+								<form name="form1" id="form1" method="GET" onSubmit="">
+									<div class="mdl-grid">
+										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+											<h5 class="text-condensedLight">Datos del trabajador</h5>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input ced" type="text" id="ced" onChange="cedula()">
+												<label class="mdl-textfield__label ced" for="ced">Cédula</label>
+											</div>
+                                            
+                                            <div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input" id="genero" required>
+												<option value="" disabled="" selected="" >Seleccionar género</option>
+												<option value="Femenino">Femenino</option>
+												<option value="Masculino">Masculino</option>
+												</select>
+											</div>
+                                            
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input nom" type="text" id="nom" onChange="nombre()">
+												<label class="mdl-textfield__label nom" for="nom">Nombre</label>
+											</div>
+										
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input correo" type="email" id="correo" onChange="correoElec()">
+												<label class="mdl-textfield__label correo" for="correo">Correo electrónico</label>
+											</div>
+                                            
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input direc" type="text" id="direc" onChange="direccion()">
+												<label class="mdl-textfield__label direc" for="direc">Dirección</label>
+											</div>
+                                            
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+													<label for="fecha">Seleccionar fecha de nacimiento</label>
+ 												<input type="date" id="fecha" name="fecha" min="1950-01-01" max="2060-12-31" required>
+											</div>
+                                            
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input" id="estado" required>
+												<option value="" disabled="" selected="" >Seleccionar estado</option>
+												<option value="Activo">Activo</option>
+												<option value="Inactivo">Inactivo</option>
+												</select>
+											</div>
+                                            
+										</div>
+										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+											<h5 class="text-condensedLight">Detalles de la cuenta</h5>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" id="usuario" onChange="usuariovalidacion()">
+												<label class="mdl-textfield__label" for="usuario">Usuario</label>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input contra" type="password" id="contra" onChange="contrasenia()">
+												<label class="mdl-textfield__label contra" for="contra">Contraseña</label>
+											</div>
+										</div>
+									</div>
+									<p class="text-center">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addAdmin" type="submit" onsubmit="">
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="btn-addAdmin">Agregar trabajador</div>
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mdl-tabs__panel" id="tabListAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+                    
+
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-success text-center tittles">
+								Lista de trabajadores
+							</div>
+							<div class="full-width panel-content">
+								<form action="#">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+										<button onclick="cargarArchivos(); return false;">Recargar Datos</button>
+									
+									</div>
+								</form>
+                                
+								
+							</div>
+                            <form action="#">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
+											<i class="zmdi zmdi-search"></i>
+										</label>
+										<div class="mdl-textfield__expandable-holder">
+											<input class="mdl-textfield__input" type="text" id="searchAdmin">
+											<label class="mdl-textfield__label"></label>
+										</div>
+									</div>
+						  </form>
+                      </div>
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table width="75" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th align="center" valign="middle" class="mdl-data-table__cell--non-numeric">Cedula</th>
+							<th>Genero</th>
+							<th>Nombre</th>
+							<th width="75%">Email</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Estado</th>
+							<th>Id Departamento</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td align="center" valign="middle" class="mdl-data-table__cell--non-numeric">1923378121</td>
+							<td>Femenino</td>
+							<td>Christina Cortez</td>
+							<td width="75%">christina.cortez@nasa.dod.com</td>
+							<td>25/01/92</td>
+							<td>Inactivo</td>
+							<td>DPTO 1107</td>
+							<td>
+										<button value="Actualizar" title="Actualizar" class="btn btn-primary btn-edit btn-editar" for="btn-editar"><i class="fas fa-eye-dropper">Editar </button>&nbsp;
+										<button value="Eliminar" title="Eliminar" class="btn btn-danger btn-delete btn-elim" for="btn-elim"><i class="fas fa-trash">Eliminar</button></td>
+						</tr>
+						<tr>
+							<td align="center" valign="middle" class="mdl-data-table__cell--non-numeric">1238721280</td>
+							<td>Masculino</td>
+							<td>Curtis Frederick</td>
+							<td width="75%">curtis_frederick@nasa.dod.com</td>
+							<td>01/09/96</td>
+							<td>Activo</td>
+							<td>DPTO 1108</td>
+							<td>
+										<button value="Actualizar" title="Actualizar" class="btn btn-primary btn-edit btn-editar" for="btn-editar"><i class="fas fa-eye-dropper">Editar </button>&nbsp;
+										<button value="Eliminar" title="Eliminar" class="btn btn-danger btn-delete btn-elim" for="btn-elim"><i class="fas fa-trash">Eliminar</button></td>
+						</tr>
+			
+					</tbody>
+				</table>
+			</div>
+			
+				  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<script>
+		document.getElementById("form1").addEventListener("submit", function(){
+			var retorno=validar2();
+			if (retorno == false){
+				alert("No se ingresaron los datos, vuelve a intentarlo");
+				return false;
+			}else{
+				probarArchivos();
+			}})
+			
+	</script>
+</body>
+
+</html>

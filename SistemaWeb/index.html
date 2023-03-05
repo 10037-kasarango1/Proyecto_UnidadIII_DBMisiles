@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Savenet</title>
+	<link rel="icon" type="image/icon" href="assets/icons/login.png">
+	<link rel="icon" type="image/icon" href="./img/icono.jpg">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="css/material.min.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/material.min.js" ></script>
+	<script src="js/validaciones2.js"></script>
+	
+	<script src="js/archivos7.js" ></script>
+	<script language="JavaScript"> 
+function ejecutar(){ 
+	var comprobar = window.localStorage.getItem('datoscontratos')
+
+	if (comprobar === null || comprobar.length === 0){
+		//LocalStorage con objetos
+		localStorage.clear();
+		inicial2();
+		inicial3();
+		inicial4();
+		inicial9();
+   	} else{
+		
+		//LocalStorage vacio
+		
+	}
+} 
+</script> 
+</head>
+<body onload="ejecutar()" class="cover">
+	<div class="container-login">
+		<p class="text-center" style="font-size: 80px;">
+			<i class="zmdi zmdi-account-circle"></i>
+		</p>
+		<p class="text-center text-condensedLight">Inicie sesión</p>
+		<form name="form1" onsubmit="return validar()">
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input" type="text" id="usuario" onchange="usuariovalidacion()">
+			    <label class="mdl-textfield__label" for="usuario">Usuario</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input contra" type="password" id="contra" onchange="contrasenia()">
+			    <label class="mdl-textfield__label contra" for="contra">Contraseña</label>
+			</div>
+			<button id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: black; float:right;" formaction="html/home.html" type="submit">
+				Enviar <i class="zmdi zmdi-mail-send"></i>
+			</button>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Savenet Inicio</title>
+	<link rel="icon" type="image/icon" href="../assets/icons/login.png">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/material.min.css">
+	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="../js/main.js" ></script>
+	<script src="../js/sweetalert2.min.js" ></script>
+	<script src="../js/material.min.js" ></script>
+	<script src="../js/archivos7.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+	</script>
+</head>
+	<body> 
+	<script>
+	if (sessionStorage.getItem('status') != null){
+		
+	}
+	else{
+		window.location.replace("../index.html");
+	}	
+	</script>
+	<div class="full-width navBar">
+		<div class="full-width navBar-options">
+			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+			<div class="mdl-tooltip" for="btn-menu">Menu</div>
+			<nav class="navBar-options-list">
+				<ul class="list-unstyle">
+					<li class="btn-exit" id="btn-exit">
+						<i class="zmdi zmdi-power"></i>
+						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
+					</li>
+					<li class="text-condensedLight noLink" ><small>Usuario</small></li>
+					<li class="noLink">
+						<figure>
+							<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+						</figure>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+		
+	<!-- MenuLateral -->
+		<section class="full-width navLateral">
+		<div class="full-width navLateral-bg btn-menu"></div>
+		<div class="full-width navLateral-body">
+			<div class="full-width navLateral-body-logo text-center tittles">SAVENET</div>
+			<figure class="full-width" style="height: 77px;">
+				<div class="navLateral-body-cl">
+					<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+				</div>
+				<figcaption class="navLateral-body-cr hide-on-tablet">
+					<span>
+						Administrador<br>
+						<small>Administrador</small>
+					</span>
+				</figcaption>
+			</figure>
+			<div class="full-width tittles navLateral-body-tittle-menu">
+				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; Menú</span>
+			</div>
+			<nav class="full-width">
+				<ul class="full-width list-unstyle menu-principal">
+					<li class="full-width">
+						<a href="home.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-view-dashboard"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								INICIO
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						
+						
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								USUARIO
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="admin.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ADMINISTRADOR
+									</div>
+								</a>
+							</li>
+							<li class="full-width divider-menu-h"></li>
+                                <li class="full-width">
+                                    <a href="#!" class="full-width btn-subMenu">
+                                        <div class="navLateral-body-cl">
+                                            <i class="zmdi zmdi-face"></i>
+                                        </div>
+                                        <div class="navLateral-body-cr hide-on-tablet">
+                                            TRABAJADOR
+                                        </div>
+                                        <span class="zmdi zmdi-chevron-left"></span>
+                                    </a>
+                                    <ul class="full-width menu-principal sub-menu-options">
+                                    <li class="full-width">
+                                            <a href="employee.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    PERSONAL
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="ingeniero.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    INGENIERO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="tecnico.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    TECNICO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="administrador.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    ADMINISTRADOR
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+						</ul>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="proveedor.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-accounts"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PROVEEDORES
+							</div>
+						</a>
+					</li>
+	
+					
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="pieza.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PIEZAS
+							</div>
+						</a>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="componente.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								COMPONENTES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="rol.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								ROLES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="permiso.html" class="full-width">
+							<div class="navLateral-body-cl">
+
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PERMISOS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="misil.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								MISILES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="parametro.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PARAMETROS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="departamento.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								DEPARTAMENTOS
+							</div>
+						</a>
+					</li>
+                    
+                    </li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								Otros
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="Especificacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ESPECIFICACION
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="Stock.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										STOCK
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Contenido.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CONTENIDO
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Autorizacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										AUTORIZACION
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="items.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ITEMS
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="fichaensam.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										FICHA ENSAMBLAJE
+									</div>
+								</a>
+							</li>
+						</ul>
+                        
+					</li>
+                    
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!-- pageContent -->
+	<section class="full-width pageContent">
+		<section class="full-width text-center" style="padding: 40px 0;">
+			<h3 class="text-center tittles">Bienvenido al sistema de Ensamblaje de misiles</h3>
+            
+			<h4 class="text-center">“The world is yours... We need you”.</4>
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Savenet Inicio</title>
+	<link rel="icon" type="image/icon" href="../assets/icons/login.png">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/material.min.css">
+	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="../js/main.js" ></script>
+	<script src="../js/sweetalert2.min.js" ></script>
+	<script src="../js/material.min.js" ></script>
+	<script src="../js/archivos7.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+	</script>
+</head>
+	<body> 
+	<script>
+	if (sessionStorage.getItem('status') != null){
+		
+	}
+	else{
+		window.location.replace("../index.html");
+	}	
+	</script>
+	<div class="full-width navBar">
+		<div class="full-width navBar-options">
+			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+			<div class="mdl-tooltip" for="btn-menu">Menu</div>
+			<nav class="navBar-options-list">
+				<ul class="list-unstyle">
+					<li class="btn-exit" id="btn-exit">
+						<i class="zmdi zmdi-power"></i>
+						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
+					</li>
+					<li class="text-condensedLight noLink" ><small>Usuario</small></li>
+					<li class="noLink">
+						<figure>
+							<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+						</figure>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+		
+	<!-- MenuLateral -->
+		<section class="full-width navLateral">
+		<div class="full-width navLateral-bg btn-menu"></div>
+		<div class="full-width navLateral-body">
+			<div class="full-width navLateral-body-logo text-center tittles">SAVENET</div>
+			<figure class="full-width" style="height: 77px;">
+				<div class="navLateral-body-cl">
+					<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+				</div>
+				<figcaption class="navLateral-body-cr hide-on-tablet">
+					<span>
+						Administrador<br>
+						<small>Administrador</small>
+					</span>
+				</figcaption>
+			</figure>
+			<div class="full-width tittles navLateral-body-tittle-menu">
+				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; Menú</span>
+			</div>
+			<nav class="full-width">
+				<ul class="full-width list-unstyle menu-principal">
+					<li class="full-width">
+						<a href="home.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-view-dashboard"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								INICIO
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						
+						
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								USUARIO
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="admin.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ADMINISTRADOR
+									</div>
+								</a>
+							</li>
+							<li class="full-width divider-menu-h"></li>
+                                <li class="full-width">
+                                    <a href="#!" class="full-width btn-subMenu">
+                                        <div class="navLateral-body-cl">
+                                            <i class="zmdi zmdi-face"></i>
+                                        </div>
+                                        <div class="navLateral-body-cr hide-on-tablet">
+                                            TRABAJADOR
+                                        </div>
+                                        <span class="zmdi zmdi-chevron-left"></span>
+                                    </a>
+                                    <ul class="full-width menu-principal sub-menu-options">
+                                    <li class="full-width">
+                                            <a href="employee.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    PERSONAL
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="ingeniero.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    INGENIERO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="tecnico.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    TECNICO
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="full-width">
+                                            <a href="administrador.html" class="full-width">
+                                                <div class="navLateral-body-cl">
+                                                    <i class="zmdi zmdi-account"></i>
+                                                </div>
+                                                <div class="navLateral-body-cr hide-on-tablet">
+                                                    ADMINISTRADOR
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+						</ul>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="proveedor.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-accounts"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PROVEEDORES
+							</div>
+						</a>
+					</li>
+	
+					
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="pieza.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PIEZAS
+							</div>
+						</a>
+					</li>
+                    
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="componente.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								COMPONENTES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="rol.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								ROLES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="permiso.html" class="full-width">
+							<div class="navLateral-body-cl">
+
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PERMISOS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="misil.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								MISILES
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="parametro.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PARAMETROS
+							</div>
+						</a>
+					</li>
+                    
+                    <li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="departamento.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-store"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								DEPARTAMENTOS
+							</div>
+						</a>
+					</li>
+                    
+                    </li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								Otros
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="Especificacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ESPECIFICACION
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="Stock.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										STOCK
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Contenido.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CONTENIDO
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="Autorizacion.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										AUTORIZACION
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="items.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ITEMS
+									</div>
+								</a>
+							</li>
+                            <li class="full-width">
+								<a href="fichaensam.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										FICHA ENSAMBLAJE
+									</div>
+								</a>
+							</li>
+						</ul>
+                        
+					</li>
+                    
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!-- ContenidoPagina -->
+	<section class="full-width pageContent">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-account"></i>
+			</div>
+			<div class="full-width header-well-text">
+				<p class="text-condensedLight">
+					<em>Bienvenido al registro de misiles del sistema de Ensamblaje de Misiles.</em>
+				</p>
+			</div>
+		</section>
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			<div class="mdl-tabs__tab-bar">
+				<a href="#tabNewAdmin" class="mdl-tabs__tab is-active">AÑADIR</a>
+				<a href="#tabListAdmin" class="mdl-tabs__tab" onclick="cargarArchivos()">LISTA</a>
+			</div>
+			<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-primary text-center tittles">
+								Nuevo misil
+							</div>
+                            
+							<div class="full-width panel-content">
+								<form name="form1" id="form1" onsubmit=""></form>
+									<h5 class="text-condensedLight">Datos del misil</h5>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input mis" type="text" id="inputId">
+										<label class="mdl-textfield__label mis" for="inputId">Id</label>
+									</div>
+                                    
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input nom" type="text" id="inputNombre">
+										<label class="mdl-textfield__label nom" for="inputNombre">Nombre</label>
+									</div>
+                                    
+                                    <div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input" required id="inputTipo">
+													<option value="" disabled="" selected="">Seleccionar tipo</option>
+													<option value="Nuclear">Nuclear</option>
+													<option value="Explosivo">Explosivo</option>
+                                                    <option value="Cinetico">Cinetico</option>
+												</select>
+									</div>
+                                    
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+													<label for="fecha">Seleccionar fecha de entrega</label>
+ 													<input type="date" id="inputFecha" name="inputFecha" min="1950-01-01" max="2060-12-31" required>
+									</div>
+                                    
+									<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input" required id="inputEstado">
+													<option value="" disabled="" selected="">Seleccionar estado</option>
+													<option value="Listo">Listo</option>
+													<option value="En proceso">En proceso</option>
+                                                    <option value="Incompleto">Incompleto</option>
+												</select>
+									</div>
+									<p class="text-center">
+										<button id="btnAgregar" >Agregar Misil</button>
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mdl-tabs__panel" id="tabListAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+                    
+
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-success text-center tittles">
+								Lista de misiles
+							</div>
+							<div class="full-width panel-content">
+                                
+								
+							</div>
+								<input placeholder="Buscar por ID..." id="inputBuscar">
+								<button id="btnBuscar" type="button">Buscar</button>
+                      </div>
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table width="75" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th align="center" valign="middle" class="mdl-data-table__cell--non-numeric">Id Misil</th>
+							<th>Nombre</th>
+							<th>Tipo</th>
+							<th>Fecha Entrega</th>
+                            <th>Estado</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody id="tabla-misiles">
+					</tbody>
+				</table>
+			</div>
+			
+				  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<script>
+		document.getElementById("form1").addEventListener("submit", function(){
+			var retorno=validar2();
+			if (retorno == false){
+				alert("No se ingresaron los datos, vuelve a intentarlo");
+				return false;
+			}else{
+				probarArchivos();
+			}})
+
+			
+		const llenarTabla = (misiles) => {
+			const table = document.getElementById( 'tabla-misiles' );
+			table.innerHTML = '';
+			misiles.forEach(misil=>{
+
+				const row = document.createElement( 'tr' );
+				const id = document.createElement( 'td' );
+				id.innerText = misil.VAR_ID_MIS;
+				row.appendChild(id);
+
+				const nombre = document.createElement( 'td' );
+				nombre.innerText = misil.VAR_NOMBRE_MIS;
+				row.appendChild(nombre);
+
+				const tipo = document.createElement( 'td' );
+				tipo.innerText = misil.VAR_TIPO_MIS;
+				row.appendChild(tipo);
+
+				const fecha = document.createElement( 'td' );
+				fecha.innerText = (new Date(misil.DT_FECHA_ENTREGA_MIS)).toDateString();
+				row.appendChild(fecha);
+
+				const estado = document.createElement( 'td' );
+				estado.innerText = misil.VAR_STATUS_MIS;
+				row.appendChild(estado);
+
+				const botones = document.createElement( 'td' );
+				const editar = document.createElement( 'button' );
+				editar.innerText = 'Editar';
+				editar.addEventListener('click', ()=>{
+					editarMisil(misil.VAR_ID_MIS);
+				});
+				botones.appendChild(editar);
+	
+				const eliminar = document.createElement( 'button' );
+				eliminar.innerText = 'Eliminar';
+				eliminar.addEventListener('click', ()=>{
+					eliminarMisil(misil.VAR_ID_MIS);
+				});
+				botones.appendChild(eliminar);
+				row.appendChild(botones);
+
+				table.appendChild(row);
+			});
+		};
+		
+		document.getElementById("btnBuscar").addEventListener("click", function(){
+			const id_misil = document.getElementById("inputBuscar").value;
+			axios.get('http://127.0.0.1:5000/get-misiles',{
+				responseType: 'json',
+				params: {id_misil: id_misil}
+			})
+				.then(function (response) {
+					  const misiles = response.data;
+					llenarTabla(misiles);
+				});})
+		
+		document.getElementById("btnAgregar").addEventListener("click", function(){
+			const id_misil = document.getElementById("inputId");
+			const nombre_mis = document.getElementById("inputNombre");
+			const tipo_mis = document.getElementById("inputTipo");
+			const fecha_entrega_mis = document.getElementById("inputFecha");
+			const status_mis = document.getElementById("inputEstado");
+			const misil = {
+				id_misil: id_misil.value,
+				nombre_mis: nombre_mis.value,
+				tipo_mis: tipo_mis.value,
+				fecha_entrega_mis: fecha_entrega_mis.value.toString(),
+				status_mis: status_mis.value,
+				index_mis: Math.floor(Math.random() * (10000 - 6000 + 1) + 6000)
+			};
+			axios.post('http://127.0.0.1:5000/crear-misil',{
+				responseType: 'json',
+				data: misil
+			})
+				.then(function (response) {
+						console.log(response.data);
+						alert("Se ha agregado el misil correctamente");
+						id_misil.value = "";
+						nombre_mis.value = "";
+						tipo_mis.value = "";
+						fecha_entrega_mis.value = "";
+						status_mis.value = "";
+				});})
+
+			
+	</script>
+</body>
+
+</html>
