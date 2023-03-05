@@ -1,0 +1,678 @@
+-------------------------------------------------------------------------------------CREACIÓN DE USUARIO--------------------------------------------------------------------------------------
+
+create user ksarango4 identified by Oracle69849;
+
+grant connect, resource, dba to ksarango4;
+
+---------------------------------------------------------------------------------CONEXIÓN A LA BASE DE DATOS---------------------------------------------------------------------------------
+
+alter session set container = DBMisiles;
+
+connect ksarango4@DBMisiles
+
+-------------------------------------------------------------------------------------CREACIÓN DE TABLAS--------------------------------------------------------------------------------------
+var_descripcion_esp  VARCHAR(40) NOT NULL,
+var_id_mis           VARCHAR(40) NOT NULL,
+var_id_par           VARCHAR(40) NOT NULL,
+CONSTRAINT pk_especificacion 
+PRIMARY KEY (var_id_mis, var_id_par),
+CONSTRAINT fk_especificacion_misil 
+FOREIGN KEY (var_id_mis) REFERENCES tb_misil (var_id_mis)
+ON DELETE CASCADE,
+CONSTRAINT fk_especificacion_parametro 
+FOREIGN KEY (var_id_par) REFERENCES tb_parametro (var_id_par) 
+ON DELETE CASCADE
+);
+
+create table tb_stock(
+dt_fecha_compra      DATE NOT NULL,
+var_id_pieza         VARCHAR(40) NOT NULL,
+var_id_pro           VARCHAR(40) NOT NULL,
+CONSTRAINT pk_stock 
+PRIMARY KEY (var_id_pieza, var_id_pro),
+CONSTRAINT fk_stock_pieza 
+FOREIGN KEY (var_id_pieza) REFERENCES tb_pieza (var_id_pieza) 
+ON DELETE CASCADE,
+CONSTRAINT fk_stock_proveedor 
+FOREIGN KEY (var_id_pro) REFERENCES tb_proveedor (var_id_pro) 
+ON DELETE CASCADE
+);
+
+create table tb_contenido(
+nbr_cantidad_necesaria NUMBER NOT NULL,
+var_id_com             VARCHAR(40) NOT NULL,
+var_id_pieza           VARCHAR(40) NOT NULL,
+CONSTRAINT pk_contenido 
+PRIMARY KEY (var_id_com, var_id_pieza),
+CONSTRAINT fk_contenido_componente 
+FOREIGN KEY (var_id_com) REFERENCES tb_componente (var_id_com) 
+ON DELETE CASCADE,
+CONSTRAINT fk_contenido_pieza 
+FOREIGN KEY (var_id_pieza) REFERENCES tb_pieza (var_id_pieza) 
+ON DELETE CASCADE
+);
+
+create table tb_autorizacion(
+var_descripcion_au       VARCHAR(40) NOT NULL,
+var_status_au            VARCHAR(40) NOT NULL,
+var_id_perm              VARCHAR(40) NOT NULL,
+var_id_rol               VARCHAR(40) NOT NULL,
+CONSTRAINT pk_autorizacion 
+PRIMARY KEY (var_id_perm, var_id_rol),
+CONSTRAINT fk_autorizacion_permiso 
+FOREIGN KEY (var_id_perm) REFERENCES tb_permiso (var_id_perm) 
+ON DELETE CASCADE,
+CONSTRAINT fk_autorizacion_rol 
+FOREIGN KEY (var_id_rol) REFERENCES tb_rol (var_id_rol) 
+ON DELETE CASCADE
+);
+
+create table tb_items(
+var_status_itm        VARCHAR(40) NOT NULL,
+var_id_com            VARCHAR(40) NOT NULL,
+var_id_mis            VARCHAR(40) NOT NULL,
+CONSTRAINT pk_items  
+PRIMARY KEY (var_id_com, var_id_mis),
+CONSTRAINT fk_items_componente 
+FOREIGN KEY (var_id_com) REFERENCES tb_componente (var_id_com) 
+ON DELETE CASCADE,
+CONSTRAINT fk_items_misil 
+FOREIGN KEY (var_id_mis) REFERENCES tb_misil (var_id_mis) 
+ON DELETE CASCADE
+);
+
+create table tb_ficha_ensamblaje(
+dt_fecha_ensamblar      DATE NOT NULL,
+var_id_rol              VARCHAR(40) NOT NULL,
+var_cedula_per          VARCHAR(40) NOT NULL,
+var_id_mis              VARCHAR(40) NOT NULL,
+CONSTRAINT pk_ficha_ensambaje  
+PRIMARY KEY (var_id_rol, var_cedula_per, var_id_mis),
+CONSTRAINT fk_ficha_ensambaje_rol 
+FOREIGN KEY (var_id_rol) REFERENCES tb_rol (var_id_rol) 
+ON DELETE CASCADE,
+CONSTRAINT fk_ficha_ensambaje_personal 
+FOREIGN KEY (var_cedula_per) REFERENCES tb_personal (var_cedula_per) 
+ON DELETE CASCADE,
+CONSTRAINT fk_ficha_ensambaje_misil 
+FOREIGN KEY (var_id_mis) REFERENCES tb_misil (var_id_mis) 
+ON DELETE CASCADE
+);
+
+
+============================================================================================================================================================================================
+===========================================================Se debe crear los indices necesarios para la optimización de procesos.===========================================================
+============================================================================================================================================================================================
+
+
+
+CREATE UNIQUE INDEX nbr_ix_var_id_pro ON tb_proveedor(nbr_ix_var_id_pro);
+CREATE UNIQUE INDEX nbr_ix_var_id_pieza ON tb_pieza(nbr_ix_var_id_pieza);
+CREATE UNIQUE INDEX nbr_ix_var_id_com ON tb_componente(nbr_ix_var_id_com);
+CREATE UNIQUE INDEX nbr_ix_var_id_rol ON tb_rol(nbr_ix_var_id_rol);
+CREATE UNIQUE INDEX nbr_ix_var_id_perm ON tb_permiso(nbr_ix_var_id_perm);
+CREATE UNIQUE INDEX nbr_ix_var_id_mis ON tb_misil(nbr_ix_var_id_mis);
+CREATE UNIQUE INDEX nbr_ix_var_id_par ON tb_parametro(nbr_ix_var_id_par);
+CREATE UNIQUE INDEX nbr_ix_var_id_dept ON tb_departamento(nbr_ix_var_id_dept);
+CREATE UNIQUE INDEX nbr_ix_var_id_per ON tb_personal(nbr_ix_var_id_per);
+
+
+-------------------------------------------------------------------------------------Llenado de datos--------------------------------------------------------------------------------------
+
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Schema_Indices.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Proveedor_Ix.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Pieza_Ix.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Componente_Ix.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Rol_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Permiso_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Misil_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Parametro_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Departamento_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Personal_IX.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Ingeniero.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Tecnico.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Administrador.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Especificacion.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Stock.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Contenido.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Autorizacion.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Items.sql;
+@D:\SBD\DBMisil\Tablas_DBMisil\DBMisiles_Tb_Ficha_Ensamblaje.sql;
+
+
+============================================================================================================================================================================================
+======================================================================================== TRIGGERS ==========================================================================================
+============================================================================================================================================================================================
+
+------------------------------------------------------------ Trigger N°1: Auditoria a la tabla misil
+
+CREATE TABLE tb_misil_AUDITORIA (
+    AUDITORIA_id NUMBER PRIMARY KEY,
+    var_id_mis VARCHAR2(40 BYTE),
+    var_nombre_mis VARCHAR2(40 BYTE),
+    var_tipo_mis VARCHAR2(40 BYTE),
+    dt_fecha_entrega_mis DATE,
+    var_status_mis VARCHAR2(40 BYTE),
+    operacion VARCHAR2(10),
+    AUDITORIA_timestamp TIMESTAMP
+);
+
+
+-- Crear secuencia para generar valores de AUDITORIA_id
+
+CREATE SEQUENCE seq_tb_misil_AUDITORIA
+    START WITH 1
+    INCREMENT BY 1
+    NOMAXVALUE;
+
+-- Crear trigger para AUDITORIAar la tabla tb_misil
+
+
+CREATE OR REPLACE TRIGGER TG_AUDITORIA_TB_MISIL
+AFTER INSERT OR UPDATE OR DELETE ON TB_MISIL
+FOR EACH ROW
+DECLARE
+    v_operacion VARCHAR2(10);
+BEGIN
+    IF INSERTING THEN
+        v_operacion := 'INSERT';
+    ELSIF UPDATING THEN
+        v_operacion := 'UPDATE';
+    ELSE
+        v_operacion := 'DELETE';
+    END IF;
+
+    INSERT INTO TB_MISIL_AUDITORIA (
+        AUDITORIA_ID,
+        VAR_ID_MIS,
+        VAR_NOMBRE_MIS,
+        VAR_TIPO_MIS,
+        DT_FECHA_ENTREGA_MIS,
+        VAR_STATUS_MIS,
+        OPERACION,
+        AUDITORIA_TIMESTAMP
+    ) VALUES (
+        seq_tb_misil_AUDITORIA.NEXTVAL,
+        :NEW.VAR_ID_MIS,
+        :NEW.VAR_NOMBRE_MIS,
+        :NEW.VAR_TIPO_MIS,
+        :NEW.DT_FECHA_ENTREGA_MIS,
+        :NEW.VAR_STATUS_MIS,
+        v_operacion,
+        SYSTIMESTAMP
+    );
+END;
+/
+
+
+
+
+Insert into tb_misil(var_id_mis,var_nombre_mis,var_tipo_mis,dt_fecha_entrega_mis,var_status_mis) values ('MSL 5001','misil-B','Cinetico',DATE'2020-04-08','En proceso');
+
+SELECT * FROM tb_misil_auditoria;
+
+UPDATE tb_misil SET var_status_mis = 'Inactivo' WHERE var_id_mis = 'MSL 5001';
+
+SELECT * FROM tb_misil_audit;
+
+DELETE FROM tb_misil WHERE var_id_mis = 'MSL 5001';
+
+SELECT * FROM tb_misil_audit;
+
+SELECT * FROM tb_misil_AUDITORIA WHERE var_id_mis = 'MSL 5001';
+
+
+
+
+
+
+
+------------------------------------------------------------ Trigger N°2: Auditoria a la tabla proveedor
+
+CREATE TABLE tb_proveedor_audit (
+    VAR_ID_PRO VARCHAR2(40 BYTE),
+    VAR_NOMBRE_PRO VARCHAR2(60 BYTE),
+    VAR_TIPO_PRO VARCHAR2(40 BYTE),
+    VAR_EMAIL_PRO VARCHAR2(60 BYTE),
+    VAR_TELEFONO_PRO NUMBER,
+    VAR_DESCRIPCION_PRO VARCHAR2(40 BYTE),
+    VAR_STATUS_PRO VARCHAR2(40 BYTE),
+    AUDIT_OPERATION VARCHAR2(10),
+    AUDIT_TIMESTAMP DATE
+);
+
+CREATE OR REPLACE TRIGGER tg_tb_proveedor_audit
+AFTER INSERT OR UPDATE OR DELETE ON tb_proveedor
+FOR EACH ROW
+DECLARE
+    v_operation VARCHAR2(10);
+BEGIN
+    IF INSERTING THEN
+        v_operation := 'INSERT';
+    ELSIF UPDATING THEN
+        v_operation := 'UPDATE';
+    ELSIF DELETING THEN
+        v_operation := 'DELETE';
+    END IF;
+
+    INSERT INTO tb_proveedor_audit (VAR_ID_PRO, VAR_NOMBRE_PRO, VAR_TIPO_PRO, VAR_EMAIL_PRO, VAR_TELEFONO_PRO, VAR_DESCRIPCION_PRO, VAR_STATUS_PRO, AUDIT_OPERATION, AUDIT_TIMESTAMP)
+    VALUES (:OLD.VAR_ID_PRO, :OLD.VAR_NOMBRE_PRO, :OLD.VAR_TIPO_PRO, :OLD.VAR_EMAIL_PRO, :OLD.VAR_TELEFONO_PRO, :OLD.VAR_DESCRIPCION_PRO, :OLD.VAR_STATUS_PRO, v_operation, SYSDATE);
+END;
+/
+
+
+
+Insert into tb_proveedor(var_id_pro,var_nombre_pro,var_tipo_pro,var_email_pro,var_telefono_pro,var_descripcion_pro,var_status_pro, nbr_ix_var_id_pro) 
+values ('PRO 5001','Company LopezY','Quimico','company.lopezy@pymes.com',908906660,'WPjBoubIDyllDdLsfsVu','Activo',5001);
+
+
+SELECT * FROM tb_proveedor_audit;
+
+UPDATE tb_proveedor
+SET VAR_NOMBRE_PRO = 'PR01'
+WHERE VAR_ID_PRO = 'PRO 1';
+
+SELECT * FROM tb_proveedor_audit;
+
+DELETE FROM tb_proveedor
+WHERE VAR_ID_PRO = 'PRO 1';
+
+
+SELECT * FROM tb_proveedor_audit;
+
+
+
+------------------------------------------------------------ Trigger N°3: Actualizar el estado de un departamento
+
+CREATE OR REPLACE TRIGGER tg_actualizar_estado_departamento
+BEFORE UPDATE OF VAR_STATUS_DEPT ON tb_departamento
+FOR EACH ROW
+BEGIN
+  IF :OLD.VAR_STATUS_DEPT = 'Inactivo' AND :NEW.VAR_STATUS_DEPT = 'Activo' THEN
+    :NEW.VAR_STATUS_DEPT := 'Activo';
+  END IF;
+END;
+/
+
+select var_id_dept, var_nombre_dept, var_status_dept from tb_departamento where VAR_ID_DEPT = 'DPTO 10';
+UPDATE tb_departamento SET VAR_STATUS_DEPT = 'Activo' WHERE VAR_ID_DEPT = 'DPTO 10';
+select var_id_dept, var_nombre_dept, var_status_dept from tb_departamento where VAR_ID_DEPT = 'DPTO 10';
+
+
+
+
+
+
+------------------------------------------------------------ Trigger N°4: Actualizar el número de teléfono de un proveedor
+
+CREATE OR REPLACE TRIGGER tg_update_telefono_proveedor
+BEFORE UPDATE OF VAR_TELEFONO_PRO ON tb_proveedor
+FOR EACH ROW
+BEGIN
+  :NEW.VAR_TELEFONO_PRO := REPLACE(:NEW.VAR_TELEFONO_PRO, '-', '');
+END;
+/
+
+
+
+SELECT var_id_pro, var_telefono_pro FROM tb_proveedor WHERE VAR_ID_PRO = 'PRO 7';
+UPDATE tb_proveedor SET VAR_TELEFONO_PRO = '2221234' WHERE VAR_ID_PRO = 'PRO 7';
+SELECT var_id_pro, var_telefono_pro FROM tb_proveedor WHERE VAR_ID_PRO = 'PRO 7';
+
+
+
+------------------------------------------------------------ Trigger N°5: Actualizar el estado de un item
+
+CREATE OR REPLACE TRIGGER tg_actualizar_estado_item
+AFTER UPDATE ON tb_misil
+FOR EACH ROW
+BEGIN
+    IF :NEW.VAR_STATUS_MIS = 'listo' THEN
+        UPDATE tb_items SET VAR_STATUS_ITM = 'ensamblado' WHERE VAR_ID_MIS = :NEW.VAR_ID_MIS;
+    ELSIF :NEW.VAR_STATUS_MIS IN ('en proceso', 'incompleto') THEN
+        UPDATE tb_items SET VAR_STATUS_ITM = 'no ensamblado' WHERE VAR_ID_MIS = :NEW.VAR_ID_MIS;
+    END IF;
+END;
+/
+
+
+
+SELECT mis.var_id_mis, mis.var_status_mis, itm.var_status_itm
+from tb_misil mis
+inner join tb_items itm on mis.var_id_mis=itm.var_id_mis
+where mis.VAR_ID_MIS = 'MSL 291';
+
+UPDATE tb_misil SET VAR_STATUS_MIS = 'listo' WHERE VAR_ID_MIS = 'MSL 291';
+
+SELECT mis.var_id_mis, mis.var_status_mis, itm.var_status_itm
+from tb_misil mis
+inner join tb_items itm on mis.var_id_mis=itm.var_id_mis
+where mis.VAR_ID_MIS = 'MSL 291';
+
+
+
+
+
+
+============================================================================================================================================================================================
+================================================================================Al menos 4 vistas deben ser creadas.========================================================================
+============================================================================================================================================================================================
+
+------------------------------------------------------------ Vista N°1: Lista de misiles en estado "En proceso"
+
+create or replace view vw_misiles as
+select mis.var_id_mis, mis.var_nombre_mis, mis.var_tipo_mis, mis.dt_fecha_entrega_mis, mis.var_status_mis
+	from tb_misil mis
+	where mis.var_status_mis like 'En proceso';
+
+select * from vw_misiles;
+
+
+----- Vista N°2
+
+create or replace view vw_personal as
+select per.var_cedula_per, per.var_nombre_per, per.var_genero_per, dpt.var_id_dept
+	from tb_personal per
+        inner join tb_departamento dpt on dpt.var_id_dept = per.var_id_dept
+	where per.var_status_per like 'Activo' AND dpt.var_id_dept like 'DPTO 16';
+
+select * from vw_personal;
+
+------------------------------------------------------------ Vista N°3: Lista de los proveedores en estado activo que administran piezas electrónicas
+
+create or replace view vw_proveedores as
+select pro.var_id_pro, pro.var_nombre_pro, pro.var_status_pro, pz.var_tipo_pieza
+	from tb_proveedor pro
+        inner join tb_stock st on st.var_id_pro=pro.var_id_pro
+	inner join tb_pieza pz on pz.var_id_pieza=st.var_id_pieza
+	where pz.var_tipo_pieza like 'Electronico' AND pro.var_status_pro like 'Activo';
+
+select * from vw_proveedores;
+
+------------------------------------------------------------ Vista N°4: Lista de las piezas en estado disponible pertenecientes a componentes electrónicos
+
+create or replace view vw_piezas as
+select pz.var_id_pieza, pz.var_nombre_pieza, pz.var_tipo_pieza, pz.var_status_pieza, com.var_tipo_com
+	from tb_pieza pz
+        inner join tb_contenido cont on cont.var_id_pieza=pz.var_id_pieza
+	inner join tb_componente com on com.var_id_com=cont.var_id_com
+	where pz.var_status_pieza like 'Disponible' AND com.var_tipo_com like 'Electronico';
+
+select * from vw_piezas;
+
+
+
+
+
+============================================================================================================================================================================================
+======================================================================================PROCEDIMIENTO=========================================================================================
+============================================================================================================================================================================================
+
+------------------------------------------------------------ Procedimiento que permite agregar misiles
+
+create or replace PROCEDURE sp_crear_misil(
+  p_var_id_mis VARCHAR2, 
+  p_var_nombre_mis VARCHAR2, 
+  p_var_tipo_mis VARCHAR2, 
+  p_dt_fecha_entrega_mis VARCHAR2, 
+  p_var_status_mis VARCHAR2,
+  p_var_index_mis NUMBER,
+  p_out_msg OUT VARCHAR2
+) 
+IS
+BEGIN
+  INSERT INTO tb_misil (
+    VAR_ID_MIS, 
+    VAR_NOMBRE_MIS, 
+    VAR_TIPO_MIS, 
+    DT_FECHA_ENTREGA_MIS, 
+    VAR_STATUS_MIS, 
+    NBR_IX_VAR_ID_MIS
+  ) VALUES (
+    p_var_id_mis, 
+    p_var_nombre_mis, 
+    p_var_tipo_mis, 
+    TO_DATE(p_dt_fecha_entrega_mis, 'YYYY-MM-DD'),
+    p_var_status_mis, 
+    p_var_index_mis
+  );
+
+  p_out_msg := 'Misil agregado exitosamente.';
+EXCEPTION
+  WHEN OTHERS THEN
+    p_out_msg := 'Error al agregar el misil: ' || SQLERRM;
+END;
+
+============================================================================================================================================================================================
+========================================================================================FUNCIONES===========================================================================================
+============================================================================================================================================================================================
+
+------------------------------------------------------------ Funcion que permite buscar misiles
+
+create or replace FUNCTION get_misiles_fn(
+    p_var_id_mis IN TB_MISIL.VAR_ID_MIS%TYPE
+) RETURN SYS_REFCURSOR AS
+    misiles SYS_REFCURSOR;
+BEGIN
+    OPEN misiles FOR
+        SELECT json_object(*)
+        FROM TB_MISIL
+        WHERE VAR_ID_MIS LIKE '%' || p_var_id_mis || '%';
+    RETURN misiles;
+END;
+/
+
+SELECT get_misiles_fn('218)
+FROM DUAL;
+
+
+
+------------------------------------------------------------ Numero de personas que estan asignadas a determinado rol y que sean administradores
+
+------ query
+Select role.var_nombre_rol, count(pers.var_cedula_per)
+from tb_personal pers
+ inner join tb_administrador admi on pers.var_cedula_per = admi.var_cedula_per
+ inner join tb_ficha_ensamblaje fich on pers.var_cedula_per = fich.var_cedula_per 
+ inner join tb_rol role on role.var_id_rol = fich.var_id_rol
+ where role.var_status_rol like 'Activo'
+ group by role.var_nombre_rol;
+
+------ funcion
+CREATE OR REPLACE FUNCTION f_ventas1(rol varchar2) 
+RETURN NUMBER
+IS
+    res number;
+BEGIN
+    select count(pers.var_cedula_per)
+    INTO res
+    from tb_personal pers
+    inner join tb_administrador admi on pers.var_cedula_per = admi.var_cedula_per
+    inner join tb_ficha_ensamblaje fich on pers.var_cedula_per = fich.var_cedula_per 
+    inner join tb_rol role on role.var_id_rol = fich.var_id_rol
+    where role.var_status_rol like 'Activo' and role.var_nombre_rol = rol
+    group by role.var_nombre_rol;
+    
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas1('Ensamblador')
+FROM DUAL;
+
+
+
+
+
+------------------------------------------------------------ Numero de piezas que tiene un componente
+
+------ query
+
+SELECT com.var_id_com, com.var_nombre_com, COUNT(pieza.var_id_pieza)
+FROM tb_contenido cont
+INNER JOIN tb_componente com ON com.var_id_com=cont.var_id_com
+INNER JOIN tb_pieza pieza ON pieza.var_id_pieza=cont.var_id_pieza
+GROUP BY com.var_id_com, com.var_nombre_com;
+
+------ funcion
+
+CREATE OR REPLACE FUNCTION f_ventas4(nombrecomponente varchar2) 
+RETURN NUMBER
+IS
+    res number;
+BEGIN
+SELECT COUNT(pieza.var_id_pieza)
+into res
+FROM tb_contenido cont
+INNER JOIN tb_componente com ON com.var_id_com=cont.var_id_com
+INNER JOIN tb_pieza pieza ON pieza.var_id_pieza=cont.var_id_pieza
+where com.var_nombre_com=nombrecomponente
+GROUP BY com.var_id_com, com.var_nombre_com;
+
+
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas4('CMPT-CPRJ1252')
+FROM DUAL;
+
+
+
+
+------------------------------------------------------------ Cantidad de piezas que provee cada proveedor 
+------ query
+Select pro.var_nombre_pro, count(pieza.var_id_pieza)
+from tb_stock stc
+inner join tb_proveedor pro on pro.var_id_pro=stc.var_id_pro
+inner join tb_pieza pieza on pieza.var_id_pieza=stc.var_id_pieza
+group by pro.var_nombre_pro;
+
+------ funcion
+
+CREATE OR REPLACE FUNCTION f_ventas5(nombreproveedor varchar2) 
+RETURN NUMBER
+IS
+    res number;
+BEGIN
+    Select count(pieza.var_id_pieza)
+    into res
+    from tb_stock stc
+    inner join tb_proveedor pro on pro.var_id_pro=stc.var_id_pro
+    inner join tb_pieza pieza on pieza.var_id_pieza=stc.var_id_pieza
+    where pro.var_nombre_pro = nombreproveedor
+    group by pro.var_nombre_pro;
+
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas5('Company Jones LLC')
+FROM DUAL;
+
+
+
+
+
+------------------------------------------------------------ Por departamentos cuantos personales hay
+
+------ query
+select dept.var_nombre_dept, count(pers.var_cedula_per)
+from tb_departamento dept
+inner join tb_personal pers on pers.var_id_dept = dept.var_id_dept
+group by dept.var_nombre_dept;
+
+------ funcion
+
+CREATE OR REPLACE FUNCTION f_ventas6(nombredepartamento varchar2) 
+RETURN NUMBER
+IS
+    res number;
+BEGIN
+    select count(pers.var_cedula_per)
+    into res
+    from tb_departamento dept
+    inner join tb_personal pers on pers.var_id_dept = dept.var_id_dept
+    where dept.var_nombre_dept=nombredepartamento
+    group by dept.var_nombre_dept;
+
+
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas6('Departamento de Estructura')
+FROM DUAL;
+
+
+
+------------------------------------------------------------ De acuerdo al nombre de la persona hacer lista de misiles que esta en la ficha de ensamblaje
+
+------ query
+SELECT pers.var_nombre_per, mis.var_nombre_mis
+FROM tb_ficha_ensamblaje fichens
+INNER JOIN tb_personal pers ON pers.var_cedula_per = fichens.var_cedula_per
+INNER JOIN tb_misil mis ON mis.var_id_mis = fichens.var_id_mis
+GROUP BY pers.var_nombre_per, mis.var_nombre_mis;
+
+
+------ funcion
+CREATE OR REPLACE FUNCTION f_ventas7(nombrepersonal varchar2) 
+RETURN varchar
+IS
+    res varchar;
+BEGIN
+
+SELECT mis.var_nombre_mis
+into res
+FROM tb_ficha_ensamblaje fichens
+INNER JOIN tb_personal pers ON pers.var_cedula_per = fichens.var_cedula_per
+INNER JOIN tb_misil mis ON mis.var_id_mis = fichens.var_id_mis
+where pers.var_nombre_per=nombrepersonal
+GROUP BY pers.var_nombre_per, mis.var_nombre_mis;
+
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas7('Beth Ellison')
+FROM DUAL;
+
+
+
+
+
+
+
+------------------------------------------------------------ Lista de cuantos misiles estan asignados a determinados roles
+
+------ query
+
+select rol.var_nombre_rol, count(mis.var_id_mis)
+from tb_ficha_ensamblaje fichens
+ inner join tb_rol rol on rol.var_id_rol = fichens.var_id_rol
+ inner join tb_misil mis on mis.var_id_mis = fichens.var_id_mis
+ group by rol.var_nombre_rol;
+
+------ funcion
+
+CREATE OR REPLACE FUNCTION f_ventas8(nombrerol varchar2) 
+RETURN NUMBER
+IS
+    res number;
+BEGIN
+    select count(mis.var_id_mis)
+    into res
+    from tb_ficha_ensamblaje fichens
+    inner join tb_rol rol on rol.var_id_rol = fichens.var_id_rol
+    inner join tb_misil mis on mis.var_id_mis = fichens.var_id_mis
+    where rol.var_nombre_rol=nombrerol
+    group by rol.var_nombre_rol;
+
+    
+    RETURN res;
+END ;
+/
+
+SELECT f_ventas8('Ensamblador')
+FROM DUAL;
